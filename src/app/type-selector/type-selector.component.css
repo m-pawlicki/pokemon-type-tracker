@@ -1,0 +1,22 @@
+p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    padding: 2%;
+}
+
+.type1 {
+    text-align: left;
+    margin: auto;
+  }
+
+  .type2 {
+    text-align: right;
+    margin: auto;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
