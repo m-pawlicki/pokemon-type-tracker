@@ -2,17 +2,16 @@ p {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
-    padding: 2%;
 }
 
 .type1 {
     text-align: left;
-    margin: auto;
+    margin: 1.5em;
   }
 
   .type2 {
     text-align: right;
-    margin: auto;
+    margin: 1.5em;
   }
 
   .center {
