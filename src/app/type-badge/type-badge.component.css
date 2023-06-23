@@ -1,22 +1,25 @@
 .badge {
     display: inline-block;
-    padding: 0.5em;
-    background-color: #405061;
-    line-height: 1em;
+    padding: 0.2em;
     position: center;
-    height:1em;
-    min-width: 1em;
-    border-radius: 5px 5px 5px 5px;
   }
 
   .modifier {
-    font-size: large;
+    font-size: medium;
+    color:antiquewhite;
+    padding: .5em;
     font-weight: bold;
-    align-self: left;
-    padding-right: 1em;
+    align-self: center;
+    background-color: gray;
+    border-radius: 0.25em 0 0 0.25em;
   }
   .name {
     font-size: medium;
     align-self: center;
     text-transform: uppercase;
+    font-weight: bolder;
+    padding: .5em;
+    background-color: darkred;
+    color: antiquewhite;
+    border-radius: 0 0.25em 0.25em 0;
   }
