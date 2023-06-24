@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TYPES } from 'type';
+import { TYPES } from ' poke-type';
 
 @Component({
   selector: 'app-type-badge',
@@ -9,4 +9,11 @@ import { TYPES } from 'type';
 
 export class TypeBadgeComponent {
   types = TYPES;
+
+  showBadge(): void {
+
+  }
+  
+  hideBadge(): void {
+  }
 }

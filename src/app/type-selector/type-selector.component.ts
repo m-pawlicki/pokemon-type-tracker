@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TYPES } from 'type';
+import { TYPES } from ' poke-type';
 
 @Component({
   selector: 'app-type-selector',
