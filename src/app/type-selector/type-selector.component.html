@@ -1,4 +1,15 @@
 <div class ="center">
-    <p class="type1">Type 1: <app-type-badge></app-type-badge></p>
-    <p class="type2">Type 2: <app-type-badge></app-type-badge></p>
+    <p class="type1">Type 1: 
+        <select form="type-one">
+            <option>Any</option>
+            <option *ngFor="let type of types">{{type.name | titlecase}}</option>
+        </select>
+    </p>
+
+    <p class="type2">Type 2: 
+        <select form="type-two">
+            <option>Any</option>
+            <option *ngFor="let type of types">{{type.name | titlecase}}</option>
+        </select>
+    </p>
 </div>

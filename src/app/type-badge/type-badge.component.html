@@ -1,4 +1,4 @@
-<p class="badge">
+<p class="badge" *ngFor="let types of types">
 <span class="modifier">1</span>
-<span class="name">fire</span>
+<span class="{{types.name}} name">{{types.name}}</span>
 </p>

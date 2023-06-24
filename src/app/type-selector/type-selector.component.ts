@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TYPES } from 'type';
 
 @Component({
   selector: 'app-type-selector',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./type-selector.component.css']
 })
 export class TypeSelectorComponent {
-
+  types = TYPES;
 }
