@@ -1,15 +1,16 @@
 <div class ="center">
     <p class="type1">Type 1: 
-        <select form="type-one">
-            <option>Any</option>
+        <select [(ngModel)]="typeOneSelect" id="typeOne" title="Select a type">
+            <option [ngValue]="none" [defaultSelected]="true">- - - - -</option>
             <option *ngFor="let type of types">{{type.name | titlecase}}</option>
         </select>
     </p>
 
     <p class="type2">Type 2: 
-        <select form="type-two">
-            <option>Any</option>
+        <select [(ngModel)]="typeTwoSelect" id="typeTwo" title="Select a type">
+            <option [ngValue]="none" [defaultSelected]="true">- - - - -</option>
             <option *ngFor="let type of types">{{type.name | titlecase}}</option>
         </select>
     </p>
+<br><p>Selected {{typeOneSelect}} and {{typeTwoSelect}}!</p>
 </div>

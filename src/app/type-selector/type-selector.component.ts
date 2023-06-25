@@ -8,4 +8,7 @@ import { TYPES } from ' poke-type';
 })
 export class TypeSelectorComponent {
   types = TYPES;
+  typeOneSelect = '';
+  typeTwoSelect = '';
+  none = "blank";
 }

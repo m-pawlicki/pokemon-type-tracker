@@ -9,11 +9,4 @@ import { TYPES } from ' poke-type';
 
 export class TypeBadgeComponent {
   types = TYPES;
-
-  showBadge(): void {
-
-  }
-  
-  hideBadge(): void {
-  }
 }
