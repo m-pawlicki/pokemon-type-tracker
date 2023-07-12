@@ -1,3 +1,4 @@
 <h1>Pokemon Type Matchup</h1>
-<app-type-selector></app-type-selector>
+<app-type-selector (typeOne)="firstSelected" (typeTwo)="secondSelected"></app-type-selector>
+<p>Selected {{firstSelected}} & {{secondSelected}}!</p>
 <app-effect-box></app-effect-box>
