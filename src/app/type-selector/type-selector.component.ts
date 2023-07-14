@@ -10,19 +10,25 @@ import { TYPES } from ' poke-type';
 export class TypeSelectorComponent {
   types = TYPES;
   blank = 'none';
- @Output() typeOne = new EventEmitter<string>();
- @Output() typeTwo = new EventEmitter<string>();
-//@Output() blank = "none";
+  @Output() newTypeOneEvent = new EventEmitter<string>();
+  @Output() newTypeTwoEvent = new EventEmitter<string>();
 
   sendTypeOne(value: string) {
-    this.typeOne.emit(value);
-  }
-  
-  sendTypeTwo(value: string) {
-    this.typeTwo.emit(value);
+    this.newTypeOneEvent.emit(value);
   }
 
-  ngOnInit() {
+  sendTypeTwo(value: string) {
+    this.newTypeTwoEvent.emit(value);
   }
+  
+//   sendTypeTwo(event: Event) {
+//     const selectedTypeTwo = (event.target as HTMLInputElement).value;
+//     console.log(selectedTypeTwo);
+
+//     if (selectedTypeTwo === null) {
+//       this.typeTwo.emit(this.blank);
+//     }
+//     else { this.typeTwo.emit(selectedTypeTwo); }
+//   }
 
 }

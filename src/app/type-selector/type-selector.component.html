@@ -1,16 +1,15 @@
 <div class ="center">
     <p class="type1">Type 1: 
-        <select [(ngModel)]="typeOne" id="typeOne" title="Select a type">
-            <option [ngValue]="blank" [defaultSelected]="true">- - - - - -</option>
-            <option *ngFor="let type of types">{{type.name | titlecase}}</option>
+        <select #typeOne id="typeOne" title="Select a type" (change)="sendTypeOne(typeOne.value)">
+            <option [value]="blank" [defaultSelected]="true">- - - - - -</option>
+            <option *ngFor="let type of types" [value]="type.name">{{type.name | titlecase}}</option>
         </select>
     </p>
 
     <p class="type2">Type 2: 
-        <select [(ngModel)]="typeTwo" id="typeTwo" title="Select a type">
-            <option [ngValue]="blank" [defaultSelected]="true">- - - - - -</option>
-            <option *ngFor="let type of types">{{type.name | titlecase}}</option>
+        <select #typeTwo id="typeTwo" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
+            <option [value]="blank" [defaultSelected]="true">- - - - - -</option>
+            <option *ngFor="let type of types" [value]="type.name">{{type.name | titlecase}}</option>
         </select>
     </p>
-    <p>selected {{typeOne}} & {{typeTwo}}</p>
 </div>

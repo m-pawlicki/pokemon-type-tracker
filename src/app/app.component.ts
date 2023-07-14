@@ -7,6 +7,14 @@ import { Component, Input, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-pokemon-matchups';
-  @Input() firstSelected = '';
-  @Input() secondSelected = '';
+  @Input() firstType = '';
+  @Input() secondType = '';
+
+  firstSelected(type: string) {
+    this.firstType = type;
+  }
+
+  secondSelected(type: string) {
+    this.secondType = type;
+  }
 }
