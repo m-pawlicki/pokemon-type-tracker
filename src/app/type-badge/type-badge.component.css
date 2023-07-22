@@ -95,3 +95,7 @@
   .fairy {
     background-color: #EE99EE;
   }
+
+  .blank {
+    display: none;
+  }

@@ -8,7 +8,7 @@ import { TYPES } from ' poke-type';
 })
 
 export class TypeSelectorComponent {
-  types = TYPES;
+  typeList = TYPES;
   blank = 'none';
   @Output() newTypeOneEvent = new EventEmitter<string>();
   @Output() newTypeTwoEvent = new EventEmitter<string>();
@@ -20,15 +20,5 @@ export class TypeSelectorComponent {
   sendTypeTwo(value: string) {
     this.newTypeTwoEvent.emit(value);
   }
-  
-//   sendTypeTwo(event: Event) {
-//     const selectedTypeTwo = (event.target as HTMLInputElement).value;
-//     console.log(selectedTypeTwo);
-
-//     if (selectedTypeTwo === null) {
-//       this.typeTwo.emit(this.blank);
-//     }
-//     else { this.typeTwo.emit(selectedTypeTwo); }
-//   }
 
 }

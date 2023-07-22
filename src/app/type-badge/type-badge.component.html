@@ -1,40 +1,32 @@
 <h1>Teehee {{typeOneBadge}} & {{typeTwoBadge}} :3c</h1>
 
-<ng-template #superEff>
     <div class="superEff">
-        <p class="badge" *ngFor="let type of typeAtk">
+        <p class="badge" *ngFor="let types of typeAtk[typeOneBadge].superEff">
             <span class="multiplier">2</span>
-            <span class="{{type.name}} name">{{type.name}}</span>
+            <span class="{{types}} name">{{types}}</span>
         </p>
         </div>
-</ng-template>
 
-<ng-template #eff>
     <div class="eff">
-        <p class="badge" *ngFor="let types of types">
+        <p class="badge" *ngFor="let types of getEffectiveness(typeOneBadge)">
             <span class="multiplier">1</span>
             <span class="{{types}} name">{{types}}</span>
         </p>
     </div>
-</ng-template>
 
-<ng-template #notVeryEff>
     <div class="notVeryEff">
-        <p class="badge" *ngFor="let types of types">
+        <p class="badge" *ngFor="let types of typeAtk[typeOneBadge].notVeryEff">
             <span class="multiplier">½</span>
             <span class="{{types}} name">{{types}}</span>
         </p>
     </div>
-</ng-template>
 
-<ng-template #neverEff>
     <div class="neverEff">
-        <p class="badge" *ngFor="let types of types">
+        <p class="badge" *ngFor="let types of typeAtk[typeOneBadge].neverEff">
             <span class="multiplier">0</span>
             <span class="{{types}} name">{{types}}</span>
         </p>
     </div>
-</ng-template>
 
 <ng-template #blank>
     <div class="blank"></div>
