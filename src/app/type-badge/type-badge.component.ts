@@ -26,4 +26,11 @@ export class TypeBadgeComponent {
       return filteredTypes;
   }
 
+  getMultiplier(input: string, type: string) {
+    if (this.typeAtk[input].superEff.includes(type)) { return 2; }
+    else if (this.typeAtk[input].notVeryEff.includes(type)) {return .5;}
+    else if (this.typeAtk[input].neverEff.includes(type)) { return 0; }
+    else { return 1; }
+  }
+
 }
