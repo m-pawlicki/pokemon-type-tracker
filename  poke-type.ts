@@ -13,19 +13,19 @@ export const TYPES: string[] = [
 export const TYPEATK: PokeType =
     { 
       normal: {
-        superEff: [''],
+        superEff: [],
         notVeryEff: ['rock','steel'],
         neverEff: ['ghost']
       },
       fire: {
         superEff: ['grass','ice','bug','steel'],
         notVeryEff: ['fire','water','rock','dragon'],
-        neverEff: ['']
+        neverEff: []
       },
       water: {
         superEff: ['fire','ground','rock'],
         notVeryEff: ['water','grass','dragon'],
-        neverEff: ['']
+        neverEff: []
       },
       electric: {
         superEff: ['water','flying'],
@@ -35,12 +35,12 @@ export const TYPEATK: PokeType =
       grass: {
         superEff: ['water','ground','rock'],
         notVeryEff: ['fire','grass','poison','flying','bug','dragon','steel'],
-        neverEff: ['']
+        neverEff: []
       },
       ice: {
         superEff: ['grass','ground','flying','dragon'],
         notVeryEff: ['fire','water','ice','steel'],
-        neverEff: ['']
+        neverEff: []
       },
       fighting: {
         superEff: ['normal','ice','rock','dark','steel'],
@@ -60,7 +60,7 @@ export const TYPEATK: PokeType =
       flying: {
         superEff: ['grass','fighting','bug'],
         notVeryEff: ['electric','rock','steel'],
-        neverEff: ['']
+        neverEff: []
       },
       psychic: {
         superEff: ['fighting','poison'],
@@ -70,12 +70,12 @@ export const TYPEATK: PokeType =
       bug: {
         superEff: ['grass','psychic','dark'],
         notVeryEff: ['fire','fighting','poison','flying','ghost','steel','fairy'],
-        neverEff: ['']
+        neverEff: []
       },
       rock: {
         superEff: ['fire','ice','flying','bug'],
         notVeryEff: ['fighting','ground','steel'],
-        neverEff: ['']
+        neverEff: []
       },
       ghost: {
         superEff: ['psychic','ghost'],
@@ -90,17 +90,17 @@ export const TYPEATK: PokeType =
       dark: {
         superEff: ['psychic','ghost'],
         notVeryEff: ['fighting','dark','fairy'],
-        neverEff: ['']
+        neverEff: []
       },
       steel: {
         superEff: ['ice','rock','fairy'],
         notVeryEff: ['fire','water','electric','steel'],
-        neverEff: ['']
+        neverEff: []
       },
       fairy: {
         superEff: ['fighting','dragon','dark'],
         notVeryEff: ['fire','poison','steel'],
-        neverEff: ['']
+        neverEff: []
       }
     };
 
@@ -108,43 +108,43 @@ export const TYPEATK: PokeType =
       {
         normal: {
           superEff: ['fighting'],
-          notVeryEff: [''],
+          notVeryEff: [],
           neverEff: ['ghost']
         },
         fire: {
           superEff: ['water','ground','rock'],
           notVeryEff: ['fire','grass','ice','bug','steel','fairy'],
-          neverEff: ['']
+          neverEff: []
         },
         water: {
           superEff: ['electric','grass'],
           notVeryEff: ['fire','water','ice','steel'],
-          neverEff: ['']
+          neverEff: []
         },
         electric: {
           superEff: ['ground'],
           notVeryEff: ['electric','flying','steel'],
-          neverEff: ['']
+          neverEff: []
         },
         grass: {
           superEff: ['fire','ice','poison','flying','bug'],
           notVeryEff: ['water','electric','grass','ground'],
-          neverEff: ['']
+          neverEff: []
         },
         ice: {
           superEff: ['fire','fighting','rock','steel'],
           notVeryEff: ['ice'],
-          neverEff: ['']
+          neverEff: []
         },
         fighting: {
           superEff: ['flying','psychic','fairy'],
           notVeryEff: ['bug','rock','dark'],
-          neverEff: ['']
+          neverEff: []
         },
         poison: {
           superEff: ['ground','psychic'],
           notVeryEff: ['grass','fighting','poison','bug','fairy'],
-          neverEff: ['']
+          neverEff: []
         },
         ground: {
           superEff: ['water','grass','ice'],
@@ -159,17 +159,17 @@ export const TYPEATK: PokeType =
         psychic: {
           superEff: ['bug','ghost','dark'],
           notVeryEff: ['fighting','psychic'],
-          neverEff: ['']
+          neverEff: []
         },
         bug: {
           superEff: ['fire','flying','rock'],
           notVeryEff: ['grass','fighting','ground'],
-          neverEff: ['']
+          neverEff: []
         },
         rock: {
           superEff: ['water','grass','fighting','ground','steel'],
           notVeryEff: ['normal','fire','poison','flying'],
-          neverEff: ['']
+          neverEff: []
         },
         ghost: {
           superEff: ['ghost','dark'],
@@ -179,7 +179,7 @@ export const TYPEATK: PokeType =
         dragon: {
           superEff: ['ice','dragon','fairy'],
           notVeryEff: ['fire','water','electric','grass'],
-          neverEff: ['']
+          neverEff: []
         },
         dark: {
           superEff: ['fighting','bug','fairy'],
