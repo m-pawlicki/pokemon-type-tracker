@@ -9,9 +9,9 @@ import { TYPES } from ' poke-type';
 
 export class TypeSelectorComponent {
   typeList = TYPES;
-  blank = 'none';
   @Output() newTypeOneEvent = new EventEmitter<string>();
   @Output() newTypeTwoEvent = new EventEmitter<string>();
+  none = null;
 
   sendTypeOne(value: string) {
     this.newTypeOneEvent.emit(value);
