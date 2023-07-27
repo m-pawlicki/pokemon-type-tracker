@@ -1,16 +1,16 @@
 <div class ="center">
     <p class="type1">Type 1: 
         <select #typeOne id="typeOne" title="Select a type" (change)="sendTypeOne(typeOne.value)">
-            <option [disabled]="true" [defaultSelected]="true">- - - - - -</option>
-            <option [value]="none">None</option>
+            <option [disabled]="true">- - - - - -</option>
+            <option [value]="none" [selected]="typeOne === null">None</option>
             <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
         </select>
     </p>
 
     <p class="type2">Type 2: 
         <select #typeTwo id="typeTwo" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
-            <option [disabled]="true" [defaultSelected]="true">- - - - - -</option>
-            <option [value]="none">None</option>
+            <option [disabled]="true">- - - - - -</option>
+            <option [value]="none" [selected]="typeTwo === null">None</option>
             <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
         </select>
     </p>

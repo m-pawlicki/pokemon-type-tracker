@@ -14,9 +14,13 @@ export class TypeBadgeComponent {
   @Input() typeOneBadge = '';
   @Input() typeTwoBadge = '';
 
-  getEffectiveness(input: string): string[] {
-    let combo = this.typeAtk[input].superEff.concat(this.typeAtk[input].notVeryEff, this.typeAtk[input].neverEff);
-    let filtered = [... new Set(combo)];
+  getEffectiveness(type: string): string[] {
+    let combo: string[] = [];
+    let filtered: string[] = [];
+    if (this.typeAtk[type]) {
+      combo = this.typeAtk[type].superEff.concat(this.typeAtk[type].notVeryEff, this.typeAtk[type].neverEff);
+      filtered = [... new Set(combo)];
+    }
     return filtered;
   }
 
@@ -28,69 +32,107 @@ export class TypeBadgeComponent {
   }
 
 filterTypes(firstType: string, secondType: string) {
-  let filterSuper = [... new Set(this.typeAtk[firstType].superEff.concat(this.typeAtk[secondType].superEff))];
-  let filterResist = [... new Set(this.typeAtk[firstType].notVeryEff.concat(this.typeAtk[secondType].notVeryEff))];
-  let filterImmune = [... new Set(this.typeAtk[firstType].neverEff.concat(this.typeAtk[secondType].neverEff))];
-  return {filterSuper, filterResist, filterImmune};
+  let filterSuper: string[] = [];
+  let filterResist: string[] = [];
+  let filterImmune: string[] = [];
+
+  if (this.typeAtk[firstType]) {
+    filterSuper = this.typeAtk[firstType].superEff;
+    filterResist = this.typeAtk[firstType].notVeryEff;
+    filterImmune = this.typeAtk[firstType].neverEff;
+  }
+
+  if (this.typeAtk[secondType]) {
+    filterSuper = [...new Set(filterSuper.concat(this.typeAtk[secondType].superEff))];
+    filterResist = [...new Set(filterResist.concat(this.typeAtk[secondType].notVeryEff))];
+    filterImmune = [...new Set(filterImmune.concat(this.typeAtk[secondType].neverEff))];
+  }
+
+  return { filterSuper, filterResist, filterImmune };
+
 }
 
 combineSuper(typeOne: string, typeTwo: string) {
-  if (typeTwo === null || typeTwo === undefined) { 
-    return this.typeAtk[typeOne].superEff; }
-  else if (typeOne === null || typeOne === undefined) {
-    return this.typeAtk[typeTwo].superEff; }
-    else if ((typeOne == null || typeOne == undefined) && (typeTwo == null || typeTwo == undefined)) {
-      return;
-    }
-  else {
-      return this.filterTypes(typeOne, typeTwo).filterSuper;
-  }
+  const superEffOne: string[] = TYPEATK[typeOne]?.superEff || [];
+  const superEffTwo: string[] = TYPEATK[typeTwo]?.superEff || [];
+  return [...new Set(superEffOne.concat(superEffTwo))];
 }
 
 combineResist(typeOne: string, typeTwo: string) {
-  if (typeTwo === null || typeTwo === undefined) { 
-    return this.typeAtk[typeOne].notVeryEff; }
-  else if (typeOne === null || typeOne === undefined) {
-    return this.typeAtk[typeTwo].notVeryEff; }
-  else {
-    return this.filterTypes(typeOne, typeTwo).filterResist;
-  }
+  const notVeryEffOne: string[] = TYPEATK[typeOne]?.notVeryEff || [];
+  const notVeryEffTwo: string[] = TYPEATK[typeTwo]?.notVeryEff || [];
+  return [...new Set(notVeryEffOne.concat(notVeryEffTwo))];
 }
 
 combineImmune(typeOne: string, typeTwo: string) {
-  if (typeTwo === null || typeTwo === undefined) { 
-    return this.typeAtk[typeOne].neverEff; }
-  else if (typeOne === null || typeOne === undefined) {
-    return this.typeAtk[typeTwo].neverEff; }
-  else {
-    return this.filterTypes(typeOne, typeTwo).filterImmune;
-  }
+  const neverEffOne: string[] = TYPEATK[typeOne]?.neverEff || [];
+  const neverEffTwo: string[] = TYPEATK[typeTwo]?.neverEff || [];
+  return [...new Set(neverEffOne.concat(neverEffTwo))];
 }
 
-  combineEffectiveness(typeOne: string, typeTwo: string) {
-    //takes both types, combining entries with each other (and truncating duplicates?), uses that to filter and obtain the 1x effective entries
-    if (typeTwo === null || typeTwo === undefined) {
-      return this.getEffectiveness(typeOne);
-    }
-    else if (typeOne === null || typeOne === undefined)
-    { return this.getEffectiveness(typeTwo); 
-    }
-    else {
-      let comboTypes = this.getEffectiveness(typeOne).concat(this.getEffectiveness(typeTwo));
-      let filteredTypes = [... new Set(comboTypes)];
-      return comboTypes;
-    }
-  }
+combineEffectiveness(typeOne: string, typeTwo: string) {
+  const comboTypes = this.getEffectiveness(typeOne).concat(this.getEffectiveness(typeTwo));
+  const filteredTypes = [...new Set(comboTypes)];
+  return filteredTypes;
+}
+
+// combineSuper(typeOne: string, typeTwo: string) {
+//   if (typeof typeTwo == null) { 
+//     return this.typeAtk[typeOne].superEff; }
+//   else if (typeof typeOne == null) {
+//     return this.typeAtk[typeTwo].superEff; }
+//     else if ((typeof typeOne == null) && (typeof typeTwo == null)) {
+//       return;
+//     }
+//   else {
+//       return this.filterTypes(typeOne, typeTwo).filterSuper;
+//   }
+// }
+
+// combineResist(typeOne: string, typeTwo: string) {
+//   if (typeof typeTwo == null) { 
+//     return this.typeAtk[typeOne].notVeryEff; }
+//   else if (typeof typeOne == null) {
+//     return this.typeAtk[typeTwo].notVeryEff; }
+//   else {
+//     return this.filterTypes(typeOne, typeTwo).filterResist;
+//   }
+// }
+
+// combineImmune(typeOne: string, typeTwo: string) {
+//   if (typeof typeTwo == null) { 
+//     return this.typeAtk[typeOne].neverEff; }
+//   else if (typeof typeOne == null) {
+//     return this.typeAtk[typeTwo].neverEff; }
+//   else {
+//     return this.filterTypes(typeOne, typeTwo).filterImmune;
+//   }
+// }
+
+  // combineEffectiveness(typeOne: string, typeTwo: string) {
+  //   //takes both types, combining entries with each other (and truncating duplicates?), uses that to filter and obtain the 1x effective entries
+  //   if (typeof typeTwo == null) {
+  //     return this.getEffectiveness(typeOne);
+  //   }
+  //   else if (typeof typeOne == null)
+  //   { return this.getEffectiveness(typeTwo); 
+  //   }
+  //   else {
+  //     let comboTypes = this.getEffectiveness(typeOne).concat(this.getEffectiveness(typeTwo));
+  //     let filteredTypes = [... new Set(comboTypes)];
+  //     return filteredTypes;
+  //   }
+  // }
 
   combineMultiplier(typeOne:string, typeTwo: string, type: string) {
     //takes both types, applies relevant multipliers to unique ones and multiplies duplicate ones togehter
     // i.e. a type combo that has /two/ super-effective (2x) toward grass will be 4x total
     let firstMulti = this.getMultiplier(typeOne, type);
-  if(typeTwo === undefined || typeTwo === null) { 
+    let secondMulti = this.getMultiplier(typeTwo, type);
+  if(typeOne) { 
     return firstMulti;
    }
   else { 
-    let secondMulti = this.getMultiplier(typeTwo, type);
     return firstMulti * secondMulti;
    }
   }
