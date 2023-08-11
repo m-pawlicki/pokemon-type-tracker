@@ -6,12 +6,13 @@ interface PokeType {
   };
 }
 
-export const TYPES: string[] = [
-  'normal','fire','water','electric','grass','ice','fighting','poison','ground','flying','psychic','bug','rock','ghost','dragon','dark','steel','fairy'
-]
-
 export const TYPEATK: PokeType =
-    { 
+    {
+      none: {
+        superEff: [],
+        notVeryEff: [],
+        neverEff: []
+      }, 
       normal: {
         superEff: [],
         notVeryEff: ['rock','steel'],
@@ -197,3 +198,5 @@ export const TYPEATK: PokeType =
           neverEff: ['dragon']
         }
       };
+
+      export const TYPES: string[] = Object.keys(TYPEATK);

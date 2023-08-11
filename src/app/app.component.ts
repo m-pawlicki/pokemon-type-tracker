@@ -7,8 +7,8 @@ import { Component, Input, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-pokemon-matchups';
-  @Input() firstType = '';
-  @Input() secondType = '';
+firstType = '';
+secondType = '';
 
   firstSelected(type: string) {
     this.firstType = type;

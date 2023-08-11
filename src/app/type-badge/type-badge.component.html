@@ -1,33 +1,29 @@
-<h1>Teehee {{typeOneBadge}} & {{typeTwoBadge}} :3c</h1>
+<h1>{{typeOneBadge}} & {{typeTwoBadge}}</h1>
 
-    <div class="superEff">
-        <p class="badge" *ngFor="let types of combineSuper(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
-        </p>
-        </div>
+<div class="2xEffective-Atk">
+    <p class="badge" *ngFor="let type of attackingType[typeOneBadge].superEff">
+        <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
 
-    <div class="eff">
-        <p class="badge" *ngFor="let types of combineEffectiveness(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
-        </p>
-    </div>
+<div class="1xEffective-Atk">
+    <p class="badge" *ngFor="let type of get1xEffectiveness(typeOneBadge)">
+        <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
 
-    <div class="notVeryEff">
-        <p class="badge" *ngFor="let types of combineResist(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
-        </p>
-    </div>
+<div class="1/2xEffective-Atk">
+    <p class="badge" *ngFor="let type of attackingType[typeOneBadge].notVeryEff">
+        <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
 
-    <div class="neverEff">
-        <p class="badge" *ngFor="let types of combineImmune(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
-        </p>
-    </div>
-
-<ng-template #blank>
-    <div class="blank"></div>
-</ng-template>
+<div class="0xEffective-Atk">
+    <p class="badge" *ngFor="let type of attackingType[typeOneBadge].neverEff">
+        <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
