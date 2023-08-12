@@ -1,28 +1,30 @@
-<h1>{{typeOneBadge}} & {{typeTwoBadge}}</h1>
-
-<div class="2xEffective-Atk">
-    <p class="badge" *ngFor="let type of attackingType[typeOneBadge].superEff">
+<h2>Super Effective</h2>
+<div class="badge" class="superEff-Atk">
+    <p class="inner" *ngFor="let type of getEffectiveness(typeOneBadge, 'superEff')">
         <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
         <span class="{{type}} name">{{type}}</span>
     </p>
 </div>
 
-<div class="1xEffective-Atk">
-    <p class="badge" *ngFor="let type of get1xEffectiveness(typeOneBadge)">
+<h2>Effective</h2>
+<div class="badge" class="regEff-Atk">
+    <p class="inner" *ngFor="let type of getEffectiveness(typeOneBadge, 'regEff')">
+        <span id="multiplier" class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
+
+<h2>Not Very Effective</h2>
+<div class="badge" class="notVeryEff-Atk">
+    <p class="inner" *ngFor="let type of getEffectiveness(typeOneBadge, 'notVeryEff')">
         <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
         <span class="{{type}} name">{{type}}</span>
     </p>
 </div>
 
-<div class="1/2xEffective-Atk">
-    <p class="badge" *ngFor="let type of attackingType[typeOneBadge].notVeryEff">
-        <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
-        <span class="{{type}} name">{{type}}</span>
-    </p>
-</div>
-
-<div class="0xEffective-Atk">
-    <p class="badge" *ngFor="let type of attackingType[typeOneBadge].neverEff">
+<h2>No Effect</h2>
+<div class="badge" class="neverEff-Atk">
+    <p class="inner" *ngFor="let type of getEffectiveness(typeOneBadge, 'neverEff')">
         <span class="multiplier">{{getMultiplier(typeOneBadge, type)}}</span>
         <span class="{{type}} name">{{type}}</span>
     </p>

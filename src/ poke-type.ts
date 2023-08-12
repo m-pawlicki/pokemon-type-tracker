@@ -8,11 +8,6 @@ interface PokeType {
 
 export const TYPEATK: PokeType =
     {
-      none: {
-        superEff: [],
-        notVeryEff: [],
-        neverEff: []
-      }, 
       normal: {
         superEff: [],
         notVeryEff: ['rock','steel'],

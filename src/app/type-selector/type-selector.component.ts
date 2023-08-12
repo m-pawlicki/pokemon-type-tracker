@@ -12,7 +12,7 @@ export class TypeSelectorComponent {
   typeList = TYPES;
   @Output() newTypeOneEvent = new EventEmitter<string>();
   @Output() newTypeTwoEvent = new EventEmitter<string>();
-  none = 'none';
+  none = "none";
 
   sendTypeOne(value: string) {
     this.newTypeOneEvent.emit(value);
