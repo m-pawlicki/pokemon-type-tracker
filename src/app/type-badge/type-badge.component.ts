@@ -17,25 +17,25 @@ export class TypeBadgeComponent {
     let effect: string[];
     switch(effectiveness) {
       case 'superEff': { 
-        if(inputType == "none") {
+        if(inputType === "none") {
           effect = [];
         } else { effect = TYPEATK[inputType].superEff; }
         break;
       }
       case 'regEff': {
-        if(inputType == "none") {
+        if(inputType === "none") {
           effect = [];
         } else { effect = this.get1xEffectiveness(inputType); }
         break;
       }
       case 'notVeryEff': {
-        if(inputType == "none") {
+        if(inputType === "none") {
           effect = [];
         } else { effect = TYPEATK[inputType].superEff; }
         break;
       }
       case 'neverEff': {
-        if(inputType == "none") {
+        if(inputType === "none") {
           effect = [];
         } else { effect = TYPEATK[inputType].superEff; }
         break;
@@ -53,7 +53,7 @@ export class TypeBadgeComponent {
   }
 
   get1xEffectiveness (inputType: string): string[] {
-    if (inputType === 'none') {return []; }
+    if (inputType === 'none') { return []; }
     let combinedTypes = TYPEATK[inputType].superEff
     .concat(TYPEATK[inputType].notVeryEff)
     .concat(TYPEATK[inputType].neverEff);
