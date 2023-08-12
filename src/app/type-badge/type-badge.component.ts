@@ -31,13 +31,13 @@ export class TypeBadgeComponent {
       case 'notVeryEff': {
         if(inputType === "none") {
           effect = [];
-        } else { effect = TYPEATK[inputType].superEff; }
+        } else { effect = TYPEATK[inputType].notVeryEff; }
         break;
       }
       case 'neverEff': {
         if(inputType === "none") {
           effect = [];
-        } else { effect = TYPEATK[inputType].superEff; }
+        } else { effect = TYPEATK[inputType].neverEff; }
         break;
       }
       case undefined: {
