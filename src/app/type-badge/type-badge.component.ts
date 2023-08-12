@@ -62,12 +62,7 @@ export class TypeBadgeComponent {
   }
 
   getMultiplier(inputType: string, searchedType: string) {
-    if (searchedType === 'none') { 
-      let el = document.getElementById('multiplier');
-      if (el != null) { el.style.display = 'none';}
-      return ''; 
-    }
-    else if (TYPEATK[inputType].superEff.includes(searchedType)) { return 2; }
+    if (TYPEATK[inputType].superEff.includes(searchedType)) { return 2; }
     else if (TYPEATK[inputType].notVeryEff.includes(searchedType)) {return 0.5;}
     else if (TYPEATK[inputType].neverEff.includes(searchedType)) { return 0; }
     else { return 1; }
