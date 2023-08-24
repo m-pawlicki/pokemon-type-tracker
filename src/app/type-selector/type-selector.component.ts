@@ -13,6 +13,7 @@ export class TypeSelectorComponent {
   @Output() newTypeOneEvent = new EventEmitter<string>();
   @Output() newTypeTwoEvent = new EventEmitter<string>();
   none = "none";
+  @Input() selectCount = "";
 
   sendTypeOne(value: string) {
     this.newTypeOneEvent.emit(value);

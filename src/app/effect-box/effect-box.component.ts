@@ -9,4 +9,5 @@ import { TYPES } from 'src/ poke-type';
 export class EffectBoxComponent {
   @Input() typeOneBox = '';
   @Input() typeTwoBox = '';
+  @Input() resultTypes = '';
 }

@@ -6,10 +6,12 @@
         </select>
     </p>
 
+    <div *ngIf="selectCount === '2'">
     <p class="type2">Type 2: 
         <select #typeTwo id="typeTwo" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
             <option [value]="none" [defaultSelected]="true">None</option>
             <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
         </select>
     </p>
+</div>
 </div>

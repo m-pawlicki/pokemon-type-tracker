@@ -10,6 +10,7 @@ import { TYPEATK, TYPEDEF, TYPES } from 'src/ poke-type';
 export class TypeBadgeComponent {
   @Input() typeOneBadge = '';
   @Input() typeTwoBadge = '';
+  @Input() badgeType = '';
   attackingType = TYPEATK;
   defendingType = TYPEDEF;
 
