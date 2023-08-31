@@ -21,6 +21,11 @@ export class TypeBadgeComponent {
 
   getDEFEffectiveness(inputTypeOne: string, inputTypeTwo: string, multiplier: number) {
     if (inputTypeOne === "none" && inputTypeTwo === "none") { return []; }
+    else if (inputTypeOne === inputTypeTwo) {
+      return Object.entries(TYPEDEF[inputTypeOne])
+      .filter(([k, v]) => v === multiplier)
+      .map(([k, v]) => k);
+    }
     else if (inputTypeTwo === "none") {
       return Object.entries(TYPEDEF[inputTypeOne])
       .filter(([k, v]) => v === multiplier)
