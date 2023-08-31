@@ -22,19 +22,14 @@ export class TypeBadgeComponent {
   getDEFEffectiveness(inputTypeOne: string, inputTypeTwo: string, multiplier: number) {
     if (inputTypeOne === "none" && inputTypeTwo === "none") { return []; }
     else if (inputTypeOne === inputTypeTwo) {
-      return Object.entries(TYPEDEF[inputTypeOne])
-      .filter(([k, v]) => v === multiplier)
-      .map(([k, v]) => k);
+      //If they're the same, just return either one once. Might make it so one is unable to pick the same type twice from the drop-downs in the future.
+      return this.filteredTypes(inputTypeOne, multiplier);
     }
     else if (inputTypeTwo === "none") {
-      return Object.entries(TYPEDEF[inputTypeOne])
-      .filter(([k, v]) => v === multiplier)
-      .map(([k, v]) => k);
+      return this.filteredTypes(inputTypeOne, multiplier);
     }
     else if (inputTypeOne === "none") {
-      return Object.entries(TYPEDEF[inputTypeTwo])
-      .filter(([k, v]) => v === multiplier)
-      .map(([k, v]) => k);
+      return this.filteredTypes(inputTypeTwo, multiplier);
     }
     let entriesOne = Object.entries(TYPEDEF[inputTypeOne]);
     let entriesTwo = Object.entries(TYPEDEF[inputTypeTwo]);
@@ -46,8 +41,12 @@ export class TypeBadgeComponent {
         }
       }
     }
-    return Object.entries(result)
-    .filter(([k, v]) => v === multiplier)
+    return this.filteredTypes(result, multiplier);
+  }
+
+  filteredTypes(input: string, multiplier: number) {
+    return Object.entries(input)
+    .filter(([k, v]) => Number(v) === multiplier)
     .map(([k, v]) => k);
   }
 }
