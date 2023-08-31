@@ -41,11 +41,13 @@ export class TypeBadgeComponent {
         }
       }
     }
-    return this.filteredTypes(result, multiplier);
+    return Object.entries(result)
+    .filter(([k, v]) => v === multiplier)
+    .map(([k, v]) => k);
   }
 
   filteredTypes(input: string, multiplier: number) {
-    return Object.entries(input)
+    return Object.entries(TYPEDEF[input])
     .filter(([k, v]) => Number(v) === multiplier)
     .map(([k, v]) => k);
   }
