@@ -1,65 +1,77 @@
 <div *ngIf="badgeType === 'atk'">
-<h2>2× Damage To</h2>
+<h2 *ngIf="getATKEffectiveness(typeOneBadge,2).length != 0">2× Damage To</h2>
 <div class="badge">
-    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'superEff')">
-        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+    <p class="inner" *ngFor="let type of getATKEffectiveness(typeOneBadge, 2)">
+        <span class="multiplier">2</span>
         <span class="{{type}} name">{{type}}</span>
     </p>
 </div>
 
-<h2>1× Damage To</h2>
+<h2 *ngIf="getATKEffectiveness(typeOneBadge,1).length != 0">1× Damage To</h2>
 <div class="badge">
-    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'regEff')">
-        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+    <p class="inner" *ngFor="let type of getATKEffectiveness(typeOneBadge, 1)">
+        <span class="multiplier">1</span>
         <span class="{{type}} name">{{type}}</span>
     </p>
 </div>
 
-<h2>½× Damage To</h2>
+<h2 *ngIf="getATKEffectiveness(typeOneBadge,0.5).length != 0">½× Damage To</h2>
 <div class="badge">
-    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'notVeryEff')">
-        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+    <p class="inner" *ngFor="let type of getATKEffectiveness(typeOneBadge, 0.5)">
+        <span class="multiplier">½</span>
         <span class="{{type}} name">{{type}}</span>
     </p>
 </div>
 
-<h2>0× Damage To</h2>
+<h2 *ngIf="getATKEffectiveness(typeOneBadge,0).length != 0">0× Damage To</h2>
 <div class="badge">
-    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'neverEff')">
-        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+    <p class="inner" *ngFor="let type of getATKEffectiveness(typeOneBadge, 0)">
+        <span class="multiplier">0</span>
         <span class="{{type}} name">{{type}}</span>
     </p>
 </div>
 </div>
 
 <div *ngIf="badgeType === 'def'">
-    <h2>4× Damage From</h2>
-    <h2>2× Damage From</h2>
+    <h2 *ngIf="getDEFEffectiveness(typeOneBadge, typeTwoBadge, 4).length != 0">4× Damage From</h2>
     <div class="badge">
-        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'doubleEff')">
-            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+        <p class="inner" *ngFor="let type of getDEFEffectiveness(typeOneBadge, typeTwoBadge, 4)">
+            <span class="multiplier">4</span>
             <span class="{{type}} name">{{type}}</span>
         </p>
     </div>
-    <h2>1× Damage From</h2>
+    <h2 *ngIf="getDEFEffectiveness(typeOneBadge, typeTwoBadge, 2).length != 0">2× Damage From</h2>
     <div class="badge">
-        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'regEff')">
-            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+        <p class="inner" *ngFor="let type of getDEFEffectiveness(typeOneBadge, typeTwoBadge, 2)">
+            <span class="multiplier">2</span>
             <span class="{{type}} name">{{type}}</span>
         </p>
     </div>
-    <h2>½× Damage From</h2>
+    <h2 *ngIf="getDEFEffectiveness(typeOneBadge, typeTwoBadge, 1).length != 0">1× Damage From</h2>
     <div class="badge">
-        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'halfEff')">
-            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+        <p class="inner" *ngFor="let type of getDEFEffectiveness(typeOneBadge, typeTwoBadge, 1)">
+            <span class="multiplier">1</span>
             <span class="{{type}} name">{{type}}</span>
         </p>
     </div>
-    <h2>¼× Damage From</h2>
-    <h2>0× Damage From</h2>
+    <h2 *ngIf="getDEFEffectiveness(typeOneBadge, typeTwoBadge, 0.5).length != 0">½× Damage From</h2>
     <div class="badge">
-        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'neverEff')">
-            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+        <p class="inner" *ngFor="let type of getDEFEffectiveness(typeOneBadge, typeTwoBadge, 0.5)">
+            <span class="multiplier">½</span>
+            <span class="{{type}} name">{{type}}</span>
+        </p>
+    </div>
+    <h2 *ngIf="getDEFEffectiveness(typeOneBadge, typeTwoBadge, 0.25).length != 0">¼× Damage From</h2>
+    <div class="badge">
+        <p class="inner" *ngFor="let type of getDEFEffectiveness(typeOneBadge, typeTwoBadge, 0.25)">
+            <span class="multiplier">¼</span>
+            <span class="{{type}} name">{{type}}</span>
+        </p>
+    </div>
+    <h2 *ngIf="getDEFEffectiveness(typeOneBadge, typeTwoBadge, 0).length != 0">0× Damage From</h2>
+    <div class="badge">
+        <p class="inner" *ngFor="let type of getDEFEffectiveness(typeOneBadge, typeTwoBadge, 0)">
+            <span class="multiplier">0</span>
             <span class="{{type}} name">{{type}}</span>
         </p>
     </div>

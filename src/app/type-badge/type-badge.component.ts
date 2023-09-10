@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TYPEATK, TYPEDEF, TYPES } from 'src/ poke-type';
+import { TYPEATK, TYPEDEF } from 'src/ poke-type';
 
 @Component({
   selector: 'app-type-badge',
@@ -11,116 +11,44 @@ export class TypeBadgeComponent {
   @Input() typeOneBadge = '';
   @Input() typeTwoBadge = '';
   @Input() badgeType = '';
-  //attackingType = TYPEATK;
-  //defendingType = TYPEDEF;
 
-  getAttackEffectiveness(inputType: string, effectiveness: string): string[] {
-    let effect: string[];
-    switch(effectiveness) {
-      case 'superEff': { 
-        if(inputType === "none") {
-          effect = [];
-        } else { effect = TYPEATK[inputType].superEff; }
-        break;
-      }
-      case 'regEff': {
-        if(inputType === "none") {
-          effect = [];
-        } else { effect = this.get1xAttackEffectiveness(inputType); }
-        break;
-      }
-      case 'notVeryEff': {
-        if(inputType === "none") {
-          effect = [];
-        } else { effect = TYPEATK[inputType].notVeryEff; }
-        break;
-      }
-      case 'neverEff': {
-        if(inputType === "none") {
-          effect = [];
-        } else { effect = TYPEATK[inputType].neverEff; }
-        break;
-      }
-      case undefined: {
-        effect = [];
-        break;
-      }
-      default: {
-        effect = [];
-        break;
+  getATKEffectiveness(inputType: string, multiplier: number) {
+    if (inputType === "none") { return []; }
+    return Object.entries(TYPEATK[inputType])
+      .filter(([k, v]) => v === multiplier)
+      .map(([k, v]) => k);
+  }
+
+  getDEFEffectiveness(inputTypeOne: string, inputTypeTwo: string, multiplier: number) {
+    if (inputTypeOne === "none" && inputTypeTwo === "none") { return []; }
+    else if (inputTypeOne === inputTypeTwo) {
+      //If they're the same, just return either one once. Might make it so one is unable to pick the same type twice from the drop-downs in the future.
+      return this.filteredTypes(inputTypeOne, multiplier);
+    }
+    else if (inputTypeTwo === "none") {
+      return this.filteredTypes(inputTypeOne, multiplier);
+    }
+    else if (inputTypeOne === "none") {
+      return this.filteredTypes(inputTypeTwo, multiplier);
+    }
+    let entriesOne = Object.entries(TYPEDEF[inputTypeOne]);
+    let entriesTwo = Object.entries(TYPEDEF[inputTypeTwo]);
+    let result: any = {};
+    for (const [ok, ov] of entriesOne) {
+      for(const [ik, iv] of entriesTwo) {
+        if (ok === ik) {
+          result[ok] = (ov*iv);
+        }
       }
     }
-    return effect;
+    return Object.entries(result)
+    .filter(([k, v]) => v === multiplier)
+    .map(([k, v]) => k);
   }
 
-  get1xAttackEffectiveness(inputType: string): string[] {
-    if (inputType === 'none') { return []; }
-    let combinedTypes = TYPEATK[inputType].superEff
-    .concat(TYPEATK[inputType].notVeryEff)
-    .concat(TYPEATK[inputType].neverEff);
-    let filteredTypes = TYPES.filter((type) => !combinedTypes.includes(type));
-    return filteredTypes;
-  }
-
-  getAttackMultiplier(inputType: string, searchedType: string) {
-    if (TYPEATK[inputType].superEff.includes(searchedType)) { return 2; }
-    else if (TYPEATK[inputType].notVeryEff.includes(searchedType)) {return 0.5;}
-    else if (TYPEATK[inputType].neverEff.includes(searchedType)) { return 0; }
-    else { return 1; }
-  }
-
-  getDefenseEffectiveness(inputType: string, effectiveness: string): string[] {
-      let effect: string[];
-      switch(effectiveness) {
-        case 'doubleEff': { 
-          if(inputType === "none") {
-            effect = [];
-          } else { effect = TYPEDEF[inputType].superEff; }
-          break;
-        }
-        case 'regEff': {
-          if(inputType === "none") {
-            effect = [];
-          } else { effect = this.get1xDefenseEffectiveness(inputType); }
-          break;
-        }
-        case 'halfEff': {
-          if(inputType === "none") {
-            effect = [];
-          } else { effect = TYPEDEF[inputType].notVeryEff; }
-          break;
-        }
-        case 'neverEff': {
-          if(inputType === "none") {
-            effect = [];
-          } else { effect = TYPEDEF[inputType].neverEff; }
-          break;
-        }
-        case undefined: {
-          effect = [];
-          break;
-        }
-        default: {
-          effect = [];
-          break;
-        }
-      }
-      return effect;
-  }
-
-  get1xDefenseEffectiveness(inputType: string): string[] {
-    if (inputType === 'none') { return []; }
-    let combinedTypes = TYPEDEF[inputType].superEff
-    .concat(TYPEDEF[inputType].notVeryEff)
-    .concat(TYPEDEF[inputType].neverEff);
-    let filteredTypes = TYPES.filter((type) => !combinedTypes.includes(type));
-    return filteredTypes;
-  }
-
-  getDefenseMultiplier(inputType: string, searchedType: string) {
-    if (TYPEDEF[inputType].superEff.includes(searchedType)) { return 2; }
-    else if (TYPEDEF[inputType].notVeryEff.includes(searchedType)) {return 0.5;}
-    else if (TYPEDEF[inputType].neverEff.includes(searchedType)) { return 0; }
-    else { return 1; }
+  filteredTypes(input: string, multiplier: number) {
+    return Object.entries(TYPEDEF[input])
+    .filter(([k, v]) => Number(v) === multiplier)
+    .map(([k, v]) => k);
   }
 }
