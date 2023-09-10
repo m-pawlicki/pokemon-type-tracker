@@ -1,0 +1,13 @@
+.center {
+    display:inline-flexbox;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  p {
+    margin: auto;
+    padding: 1.5em;
+    font-size: x-large;
+    font-weight: bold;
+  }
