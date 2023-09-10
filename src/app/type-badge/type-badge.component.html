@@ -1,33 +1,66 @@
-<h1>Teehee {{typeOneBadge}} & {{typeTwoBadge}} :3c</h1>
+<div *ngIf="badgeType === 'atk'">
+<h2>2× Damage To</h2>
+<div class="badge">
+    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'superEff')">
+        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
 
-    <div class="superEff">
-        <p class="badge" *ngFor="let types of combineSuper(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
-        </p>
-        </div>
+<h2>1× Damage To</h2>
+<div class="badge">
+    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'regEff')">
+        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
 
-    <div class="eff">
-        <p class="badge" *ngFor="let types of combineEffectiveness(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
+<h2>½× Damage To</h2>
+<div class="badge">
+    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'notVeryEff')">
+        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
+
+<h2>0× Damage To</h2>
+<div class="badge">
+    <p class="inner" *ngFor="let type of getAttackEffectiveness(typeOneBadge, 'neverEff')">
+        <span class="multiplier">{{getAttackMultiplier(typeOneBadge, type)}}</span>
+        <span class="{{type}} name">{{type}}</span>
+    </p>
+</div>
+</div>
+
+<div *ngIf="badgeType === 'def'">
+    <h2>4× Damage From</h2>
+    <h2>2× Damage From</h2>
+    <div class="badge">
+        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'doubleEff')">
+            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+            <span class="{{type}} name">{{type}}</span>
         </p>
     </div>
-
-    <div class="notVeryEff">
-        <p class="badge" *ngFor="let types of combineResist(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
+    <h2>1× Damage From</h2>
+    <div class="badge">
+        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'regEff')">
+            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+            <span class="{{type}} name">{{type}}</span>
         </p>
     </div>
-
-    <div class="neverEff">
-        <p class="badge" *ngFor="let types of combineImmune(typeOneBadge, typeTwoBadge)">
-            <span class="multiplier">{{combineMultiplier(typeOneBadge, typeTwoBadge, types)}}</span>
-            <span class="{{types}} name">{{types}}</span>
+    <h2>½× Damage From</h2>
+    <div class="badge">
+        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'halfEff')">
+            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+            <span class="{{type}} name">{{type}}</span>
         </p>
     </div>
-
-<ng-template #blank>
-    <div class="blank"></div>
-</ng-template>
+    <h2>¼× Damage From</h2>
+    <h2>0× Damage From</h2>
+    <div class="badge">
+        <p class="inner" *ngFor="let type of getDefenseEffectiveness(typeOneBadge, 'neverEff')">
+            <span class="multiplier">{{getDefenseMultiplier(typeOneBadge, type)}}</span>
+            <span class="{{type}} name">{{type}}</span>
+        </p>
+    </div>
+</div>

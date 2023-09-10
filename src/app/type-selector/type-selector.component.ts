@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { TYPES } from ' poke-type';
+import { TYPEATK, TYPEDEF, TYPES } from 'src/ poke-type';
 import { TypeBadgeComponent } from '../type-badge/type-badge.component';
 
 @Component({
@@ -12,7 +12,8 @@ export class TypeSelectorComponent {
   typeList = TYPES;
   @Output() newTypeOneEvent = new EventEmitter<string>();
   @Output() newTypeTwoEvent = new EventEmitter<string>();
-  none = null;
+  none = "none";
+  @Input() selectCount = "";
 
   sendTypeOne(value: string) {
     this.newTypeOneEvent.emit(value);
@@ -21,7 +22,5 @@ export class TypeSelectorComponent {
   sendTypeTwo(value: string) {
     this.newTypeTwoEvent.emit(value);
   }
-
-
 
 }

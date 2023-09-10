@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { TYPES } from ' poke-type';
+import { TYPES } from 'src/ poke-type';
 
 @Component({
   selector: 'app-effect-box',
@@ -9,4 +9,5 @@ import { TYPES } from ' poke-type';
 export class EffectBoxComponent {
   @Input() typeOneBox = '';
   @Input() typeTwoBox = '';
+  @Input() resultTypes = '';
 }

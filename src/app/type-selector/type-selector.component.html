@@ -1,17 +1,17 @@
 <div class ="center">
     <p class="type1">Type 1: 
         <select #typeOne id="typeOne" title="Select a type" (change)="sendTypeOne(typeOne.value)">
-            <option [disabled]="true">- - - - - -</option>
-            <option [value]="none" [selected]="typeOne === null">None</option>
+            <option [value]="none" [defaultSelected]="true">None</option>
             <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
         </select>
     </p>
 
+    <div *ngIf="selectCount === '2'">
     <p class="type2">Type 2: 
         <select #typeTwo id="typeTwo" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
-            <option [disabled]="true">- - - - - -</option>
-            <option [value]="none" [selected]="typeTwo === null">None</option>
+            <option [value]="none" [defaultSelected]="true">None</option>
             <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
         </select>
     </p>
+</div>
 </div>
