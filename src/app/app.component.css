@@ -13,6 +13,8 @@ p, nav {
   @media screen and (max-width: 600px) {
     .dex-top {
       min-width: 100%;
+      margin: 0;
+      padding: 0;
     }
   }
 

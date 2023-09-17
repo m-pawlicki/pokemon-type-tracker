@@ -49,12 +49,13 @@ select::-ms-expand {
 @media screen and (max-width: 600px) {
   .select{
     font-size: small;
+    line-height: normal;
   }
 }
 
 .select {
   width: 100%;
-  min-width: 10ch;
+  min-width: 12ch;
   max-width: 15ch;
   border: 2px solid darkslategray;
   border-radius: 0.25em;
