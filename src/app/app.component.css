@@ -22,7 +22,7 @@ p, nav {
   display: flexbox;
   justify-self: center;
   background-color: #6b0000;
-  padding: 1em;
+  padding: 1em 0;
   max-width: 50%;
   margin: auto;
 }
