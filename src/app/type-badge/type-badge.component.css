@@ -9,27 +9,29 @@ h2 {
     display: inline-block;
     padding: 0.5em;
     position: center;
-    width: 9em;
+    min-width: min-content;
+    max-width: max-content;
     color: azure;
+    text-align: center;
   }
 
-  .multiplier {
-    font-size: medium;
-    text-shadow: 2px 2px 2px #111;
-    padding: 0.5em;
-    font-weight: bold;
-    align-self: center;
-    background-color: #696969;
-    border-radius: 0.25em 0 0 0.25em;
-  }
   .name {
     font-size: medium;
-    align-self: center;
     text-transform: uppercase;
     font-weight: bolder;
-    padding: .5em;
+    padding: .75em;
     text-shadow: 2px 2px 2px #111;
-    border-radius: 0 0.25em 0.25em 0;
+    border-radius: 0.25em 0.25em 0.25em 0.25em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  }
+
+  .icon {
+    vertical-align: middle;
+    text-align: center;
+    width: 1.5em;
+    height: 1.5em;
+    padding-right: .25em;
   }
 
   .normal {

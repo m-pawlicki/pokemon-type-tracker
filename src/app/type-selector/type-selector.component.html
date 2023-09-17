@@ -1,7 +1,7 @@
 <div class ="center">
     <div class="typeOneContainer">
         <label for="typeOneSelect">First Type: </label>
-        <div class="select">
+        <div class="select" (click)="selectClicker()">
             <select #typeOne id="typeOneSelect" title="Select a type" (change)="sendTypeOne(typeOne.value)">
                 <option [value]="none" [defaultSelected]="true">None</option>
                 <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
@@ -13,7 +13,7 @@
     <div *ngIf="selectCount === '2'">
         <div class="typeTwoContainer">
             <label for="typeTwoSelect">Second Type: </label>
-            <div class="select">
+            <div class="select" (click)="selectClicker()">
                 <select #typeTwo id="typeTwoSelect" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
                     <option [value]="none" [defaultSelected]="true">None</option>
                     <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>

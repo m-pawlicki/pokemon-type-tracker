@@ -23,4 +23,12 @@ export class TypeSelectorComponent {
     this.newTypeTwoEvent.emit(value);
   }
 
+  selectClicker() {
+    const selectElement = document.querySelector('.select:first-child') as HTMLElement;
+    if(selectElement) {
+      selectElement.focus();
+      selectElement.click();
+    }
+  }
+
 }
