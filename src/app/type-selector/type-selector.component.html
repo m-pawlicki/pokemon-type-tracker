@@ -1,17 +1,25 @@
 <div class ="center">
-    <p class="type1">Type 1: 
-        <select #typeOne id="typeOne" title="Select a type" (change)="sendTypeOne(typeOne.value)">
-            <option [value]="none" [defaultSelected]="true">None</option>
-            <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
-        </select>
-    </p>
-
+    <div class="typeOneContainer">
+        <label for="typeOneSelect">First Type: </label>
+        <div class="select">
+            <select #typeOne id="typeOneSelect" title="Select a type" (change)="sendTypeOne(typeOne.value)">
+                <option [value]="none" [defaultSelected]="true">None</option>
+                <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
+            </select>
+            <span class="focus"></span>
+        </div>
+    </div>
+    
     <div *ngIf="selectCount === '2'">
-    <p class="type2">Type 2: 
-        <select #typeTwo id="typeTwo" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
-            <option [value]="none" [defaultSelected]="true">None</option>
-            <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
-        </select>
-    </p>
-</div>
+        <div class="typeTwoContainer">
+            <label for="typeTwoSelect">Second Type: </label>
+            <div class="select">
+                <select #typeTwo id="typeTwoSelect" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
+                    <option [value]="none" [defaultSelected]="true">None</option>
+                    <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
+                </select>
+                <span class="focus"></span>
+            </div>
+        </div>
+    </div>
 </div>

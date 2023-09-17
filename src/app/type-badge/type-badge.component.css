@@ -1,3 +1,8 @@
+h2 {
+  text-shadow: 0 1px 0 #111;
+  color: azure;
+}
+
 .inner {
     display: inline-block;
     padding: 0.5em;
@@ -7,7 +12,7 @@
 
   .multiplier {
     font-size: medium;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 2px 2px 2px #111;
     padding: 0.5em;
     font-weight: bold;
     align-self: center;
@@ -20,7 +25,7 @@
     text-transform: uppercase;
     font-weight: bolder;
     padding: .5em;
-    text-shadow: 2px 2px 2px black;
+    text-shadow: 2px 2px 2px #111;
     border-radius: 0 0.25em 0.25em 0;
   }
 

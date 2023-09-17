@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { TYPEATK, TYPEDEF, TYPES } from 'src/ poke-type';
+import { TYPEATK, TYPEDEF, TYPES } from 'src/poke-type';
 import { TypeBadgeComponent } from '../type-badge/type-badge.component';
 
 @Component({
