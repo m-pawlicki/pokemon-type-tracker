@@ -22,8 +22,8 @@ p, nav {
   display: flexbox;
   justify-self: center;
   background-color: #6b0000;
-  padding: 1rem;
-  width: 70%;
+  padding: 1em;
+  max-width: 50%;
   margin: auto;
 }
 
