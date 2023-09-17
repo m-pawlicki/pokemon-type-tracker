@@ -4,6 +4,11 @@ h1, p, nav {
     color: azure;
   }
 
+.dex-top {
+  background-color: #6b0000;
+  padding: 1rem;
+}
+
 .button {
   box-shadow: inset 0 1px 0 0 #ffffff;
   background: #ffffff linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
@@ -27,8 +32,4 @@ h1, p, nav {
   border: 1px solid #84bbf3;
   color: #ffffff;
   text-shadow: 0 1px 0 #528ecc;
-}
-
-.dex-screen {
-  background-color: darkslategray;
 }
