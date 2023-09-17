@@ -10,12 +10,18 @@ p, nav {
     color: azure;
   }
 
+  @media screen and (max-width: 600px) {
+    .dex-top {
+      min-width: 100%;
+    }
+  }
+
 .dex-top {
   display: flexbox;
   justify-self: center;
   background-color: #6b0000;
   padding: 1rem;
-  max-width: 50%;
+  width: 70%;
   margin: auto;
 }
 
