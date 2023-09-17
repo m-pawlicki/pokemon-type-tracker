@@ -1,12 +1,22 @@
-h1, p, nav {
+p, nav {
     text-align: center;
+    color: azure;
     text-shadow: 0 1px 0 #111;
+  }
+
+  h1 {
+    text-shadow: 3px 3px 3px #111;
+    text-align: center;
     color: azure;
   }
 
 .dex-top {
+  display: flexbox;
+  justify-self: center;
   background-color: #6b0000;
   padding: 1rem;
+  max-width: 50%;
+  margin: auto;
 }
 
 .button {
