@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 const routes: Routes = [
   { path: 'atk', component: AttackResultsComponent },
   { path: 'def', component: DefenseResultsComponent },
+  { path: "", redirectTo: 'index', pathMatch: 'full'},
+  {path: "**", redirectTo: 'index', pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -27,7 +29,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     AppRoutingModule,
   ],
   providers: [],
