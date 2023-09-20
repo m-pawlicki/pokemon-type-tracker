@@ -57,7 +57,7 @@ select {
 .select-wrapper::after {
   content: "▼";
   color: darkslategray;
-  font-size: 100%;
+  font-size: 1rem;
   top: 7px;
   right: 5px;
   position: absolute;
