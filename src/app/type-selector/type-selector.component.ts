@@ -24,7 +24,7 @@ export class TypeSelectorComponent {
   }
 
   selectClicker() {
-    const selectElement = document.querySelector('.select:first-child') as HTMLElement;
+    const selectElement = document.querySelector('select') as HTMLElement;
     if(selectElement) {
       selectElement.focus();
       selectElement.click();

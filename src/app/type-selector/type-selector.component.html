@@ -1,24 +1,22 @@
 <div class ="center">
     <div class="typeOneContainer">
-        <label for="typeOneSelect">First Type: </label>
-        <div class="select" (click)="selectClicker()">
+        <label for="typeOneSelect">Type 1: </label>
+        <div class="select-wrapper">
             <select #typeOne id="typeOneSelect" title="Select a type" (change)="sendTypeOne(typeOne.value)">
                 <option [value]="none" [defaultSelected]="true">None</option>
                 <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
             </select>
-            <span class="focus"></span>
         </div>
     </div>
     
     <div *ngIf="selectCount === '2'">
         <div class="typeTwoContainer">
-            <label for="typeTwoSelect">Second Type: </label>
-            <div class="select" (click)="selectClicker()">
+            <label for="typeTwoSelect">Type 2: </label>
+            <div class="select-wrapper">
                 <select #typeTwo id="typeTwoSelect" title="Select a type" (change)="sendTypeTwo(typeTwo.value)">
                     <option [value]="none" [defaultSelected]="true">None</option>
                     <option *ngFor="let type of typeList" [value]="type">{{type | titlecase}}</option>
                 </select>
-                <span class="focus"></span>
             </div>
         </div>
     </div>
