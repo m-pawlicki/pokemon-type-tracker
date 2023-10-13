@@ -1,10 +1,12 @@
 import { TYPEATK, TYPEDEF } from './poke-type';
 import "../styles/type-badge.css";
 
+export type TypeChoice = "ATK" | "DEF";
+
 interface TypeBadgeProps {
     firstType: string;
     secondType: string;
-    type: string
+    type: TypeChoice;
 }
 
 function TypeBadge({firstType, secondType, type}: TypeBadgeProps) {
@@ -49,32 +51,27 @@ function TypeBadge({firstType, secondType, type}: TypeBadgeProps) {
         .map(([k, v]) => k);
     }
 
-    let showBadge;
+    let showBadge: JSX.Element = (
+        <>
+        </>
+    );
 
     if (type === "ATK") {
-                if (getATKEffectiveness(firstType,2).length !=0) {
-                    showBadge = (
-                    <>
-                        <h2>2× Damage To</h2>
-                            <div className="badge">
-                            <p className="inner">
-                            <span className="{{type}} name"><img src="assets/icons/{{type}}.svg" className="icon"></img> {type}</span>
-                            </p>
-                        </div>
-                    </>
-                    )
-            };
-    }
-
-    if (type === "DEF") {
-        (
+        showBadge = (
             <>
-
+            </>
+        );
+            };
+    
+    if (type === "DEF") {
+        showBadge = (
+            <>
             </>
         );
     }
 
-    return ({showBadge});
+    return showBadge;
+}
 
     
 //Keeping this here for reasons.
@@ -146,6 +143,5 @@ function TypeBadge({firstType, secondType, type}: TypeBadgeProps) {
         </p>
     </div>
 </div> */}
-}
 
 export default TypeBadge;

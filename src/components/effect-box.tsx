@@ -1,35 +1,37 @@
-import React from "react";
+import TypeBadge, { TypeChoice } from "./type-badge";
+import { PageType, TypeSelection } from "./type-selector";
 import "../styles/effect-box.css";
-import TypeBadge from "./type-badge";
 
 interface EffectBoxProps {
-    handleTypeOneChange: string,
-    handleTypeTwoChange: string,
+    typeSelector: TypeSelection;
 }
 
-function EffectBox({handleTypeOneChange, handleTypeTwoChange}: EffectBoxProps) {
-    const firstType = handleTypeOneChange;
-    const secondType = handleTypeTwoChange;
-    let showBox;
-    let type = '';
-
-    if(firstType != "none" || secondType != "none") {
-        type="DEF";
-        showBox = (
-            <>
-                <p>T1: {firstType} T2: {secondType}</p>
-                <TypeBadge firstType={firstType} secondType={secondType} type={type} />
-            </>
-        );
-    };
+function EffectBox({ typeSelector }: EffectBoxProps) {
 
     return (
         < >
             <div className="dex-screen">
-                {showBox}
+                { renderBadges(typeSelector) }
             </div>
         </>
     );
+}
+
+function renderBadges(typeSelector: TypeSelection) {
+    switch(typeSelector.page) {
+        case PageType.ATTACK:
+            return renderAttack(typeSelector.firstType);
+        case PageType.DEFENSE:
+            return renderDefense(typeSelector.firstType, typeSelector.secondType);
+    }
+}
+
+function renderAttack(type: string) {
+    return <TypeBadge type={type} />
+}
+
+function renderDefense(typeOne: string, typeTwo: string) {
+    return <TypeBadge type={type} />
 }
 
 export default EffectBox;
