@@ -3,7 +3,7 @@ import TypeSelector from "../components/type-selector";
 
 function Attack() {
     return (
-        <TypeSelector isDEFPage="false"/>
+        <TypeSelector isDEFPage={false} />
     );
 }
 

@@ -6,10 +6,10 @@ export type TypeChoice = "ATK" | "DEF";
 interface TypeBadgeProps {
     firstType: string;
     secondType: string;
-    type: TypeChoice;
+    pageType: TypeChoice;
 }
 
-function TypeBadge({firstType, secondType, type}: TypeBadgeProps) {
+function TypeBadge({firstType, secondType, pageType}: TypeBadgeProps) {
 
     function getATKEffectiveness(inputType: string, multiplier: number) {
         if (inputType === "none") { return []; }
@@ -56,16 +56,18 @@ function TypeBadge({firstType, secondType, type}: TypeBadgeProps) {
         </>
     );
 
-    if (type === "ATK") {
+    if (pageType === "ATK") {
         showBadge = (
             <>
+            <p>ATK Type is {firstType} !</p>
             </>
         );
             };
     
-    if (type === "DEF") {
+    if (pageType === "DEF") {
         showBadge = (
             <>
+            <p>DEF Types are {firstType} and {secondType} !</p>
             </>
         );
     }

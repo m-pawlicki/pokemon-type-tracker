@@ -14,15 +14,7 @@ export interface TypeSelection {
   page: PageType;
 }
 
-function selectPageType(typeOne: string, typeTwo: string): PageType {
-  if(typeOne !== "none" && typeTwo !== "none") {
-    return PageType.DEFENSE;
-  } else {
-    return PageType.ATTACK;
-  }
-}
-
-function TypeSelector({isDEFPage} : {isDEFPage: string} ) {
+function TypeSelector({isDEFPage} : {isDEFPage: boolean} ) {
 
   const typeList = TYPES.map(type => <option key={type}>{type}</option> );
   let DEFcontent;
@@ -41,7 +33,16 @@ function TypeSelector({isDEFPage} : {isDEFPage: string} ) {
 
   const [types, setTypes] = useState<TypeSelection>( {firstType: "none", secondType: "none", page: PageType.ATTACK} );
 
-  if(isDEFPage === "true") {
+  function selectPageType(typeOne: string, typeTwo: string): PageType {
+    if(isDEFPage) {
+      return PageType.DEFENSE;
+    }
+    else {
+      return PageType.ATTACK;
+    }
+  }
+
+  if(isDEFPage) {
     DEFcontent = (
       <div className="typeTwoContainer">
       <label>Type 2: </label>

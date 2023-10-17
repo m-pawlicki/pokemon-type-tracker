@@ -27,11 +27,11 @@ function renderBadges(typeSelector: TypeSelection) {
 }
 
 function renderAttack(type: string) {
-    return <TypeBadge type={type} />
+    return <TypeBadge firstType={type} secondType="none" pageType='ATK' />
 }
 
 function renderDefense(typeOne: string, typeTwo: string) {
-    return <TypeBadge type={type} />
+    return <TypeBadge firstType={typeOne} secondType={typeTwo} pageType='DEF' />
 }
 
 export default EffectBox;
