@@ -1,6 +1,5 @@
 import TypeBadge from "./type-badge";
 import { PageType, TypeSelection } from "./type-selector";
-import "../styles/effect-box.css";
 
 interface EffectBoxProps {
     typeSelector: TypeSelection;
@@ -10,9 +9,9 @@ function EffectBox({ typeSelector }: EffectBoxProps) {
 
     return (
         <>
-        <div className="dex-screen">
+            <div className="dex-screen">
                 { renderBadges(typeSelector) }
-        </div>
+            </div>
         </>
     );
 }
