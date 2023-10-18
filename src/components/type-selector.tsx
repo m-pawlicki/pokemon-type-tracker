@@ -34,6 +34,7 @@ function TypeSelector({isDEFPage} : {isDEFPage: boolean} ) {
   const [types, setTypes] = useState<TypeSelection>( {firstType: "none", secondType: "none", page: PageType.ATTACK} );
 
   function selectPageType(typeOne: string, typeTwo: string): PageType {
+
     if(isDEFPage) {
       return PageType.DEFENSE;
     }
@@ -58,7 +59,7 @@ function TypeSelector({isDEFPage} : {isDEFPage: boolean} ) {
   
   return(
     <>
-      <div className ="center">
+      <div className ="type-center">
         <div className="typeOneContainer">
           <label>Type 1: </label>
           <div className="select-wrapper">
@@ -70,9 +71,7 @@ function TypeSelector({isDEFPage} : {isDEFPage: boolean} ) {
       </div>
         {DEFcontent}
       </div>
-      <div className="center">
           <EffectBox typeSelector={types} />
-      </div>
     </>
   );
 }

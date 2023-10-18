@@ -1,9 +1,8 @@
-h2 {
-    text-shadow: 3px 3px 3px #111;
-    color: azure;
-    background-color: #1f1f1f;
-    padding: 0.5em;
-  }
+.badge-box {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}  
   
   .inner {
       display: inline-block;

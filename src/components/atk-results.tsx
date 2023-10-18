@@ -1,5 +1,6 @@
 import { TYPEATK } from "./poke-type";
 import "../styles/type-badge.css";
+import "../styles/effect-box.css";
 
 interface ATKProps {
     type: string;
@@ -21,19 +22,19 @@ export function ATKResults({type, multiplier}: ATKProps) {
     if (result.length !== 0) {
         return(
             <>
-            <h2>Does {multiplier}× Damage To</h2>
-            {result.map((type) => (
-                <>
-                    <div className="badge">
-                        <p className="inner">
-                        <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" /> {type}</span>
-                        </p>
-                    </div>
-
-                </>
-            )
-                
-                )}
+                <h2 className="effect-title">Does {multiplier}× Damage To</h2>
+                <div className="badge-box">
+                {result.map((type) => (
+                    <>
+                        <div className="badge">
+                            <p className="inner">
+                            <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" alt={type + " icon"} /> {type}</span>
+                            </p>
+                        </div>
+                    </>
+                )   
+                    )}
+                </div>
             </>
             )}
     else {

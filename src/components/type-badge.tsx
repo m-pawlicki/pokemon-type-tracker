@@ -1,4 +1,4 @@
-import "../styles/type-badge.css";
+import "../styles/effect-box.css";
 import ATKResults from './atk-results';
 import DEFResults from './def-results';
 

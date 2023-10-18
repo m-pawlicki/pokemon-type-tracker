@@ -1,4 +1,6 @@
 import { TYPEDEF } from "./poke-type";
+import "../styles/type-badge.css";
+import "../styles/effect-box.css";
 
 interface DEFProps {
     typeOne: string;
@@ -47,19 +49,19 @@ function DEFResults({typeOne, typeTwo, multiplier}: DEFProps) {
     if (result.length !== 0) {
         return(
             <>
-            <h2>Takes {multiplier}× Damage From</h2>
-            {result.map((type) => (
-                <>
-                    <div className="badge">
-                        <p className="inner">
-                        <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" /> {type}</span>
-                        </p>
-                    </div>
-
-                </>
-            )
-                
-                )}
+                <h2 className="effect-title">Takes {multiplier}× Damage From</h2>
+                <div className="badge-box">
+                {result.map((type) => (
+                    <>
+                        <div className="badge">
+                            <p className="inner">
+                            <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" alt={type + " icon"} /> {type}</span>
+                            </p>
+                        </div>
+                    </>
+                )
+                    )}
+                </div>
             </>
             )}
     else {
