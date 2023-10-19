@@ -56,7 +56,7 @@ function DEFResults({typeOne, typeTwo, multiplier}: DEFProps) {
                     <>
                         <span className="badge">
                             <p className="inner">
-                            <span className={type + " name"}><img src={"./icons/" + type + ".svg"} className="icon" alt="icon" /> {type}</span>
+                            <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" alt="icon" /> {type}</span>
                             </p>
                         </span>
                     </>

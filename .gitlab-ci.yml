@@ -4,6 +4,8 @@ image: node
 before_script: []
 pages:
   stage: deploy
+  variables:
+    PUBLIC_URL: https://m-pawlicki.gitlab.io/pokemon-type-tracker/
   cache:
     paths:
       - node_modules/
@@ -11,6 +13,7 @@ pages:
     - npm install
     - npm run build
     - rm -rf public
+    - cp public/index.html public/404.html
     - mv build public
   artifacts:
     paths:
