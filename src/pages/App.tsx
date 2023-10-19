@@ -4,7 +4,6 @@ import Attack from "./Attack";
 import Defense from "./Defense";
 import Home from "./Home";
 import Layout from '../components/layout';
-import NotFound from "./NotFound";
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="atk" element={<Attack />} />
           <Route path="def" element={<Defense />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
