@@ -5,7 +5,7 @@ before_script: []
 pages:
   stage: deploy
   variables:
-    PUBLIC_URL: https://m-pawlicki.gitlab.io/pokemon-type-tracker/
+    PUBLIC_URL: "/pokemon-type-tracker"
   cache:
     paths:
       - node_modules/
