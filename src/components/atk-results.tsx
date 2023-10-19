@@ -29,7 +29,7 @@ export function ATKResults({type, multiplier}: ATKProps) {
                     <>
                         <span className="badge">
                             <p className="inner">
-                            <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" alt="icon" /> {type}</span>
+                            <span className={type + " name"}><img src={"pokemon-type-tracker/icons/" + type + ".svg"} className="icon" alt="icon" /> {type}</span>
                             </p>
                         </span>
                     </>
