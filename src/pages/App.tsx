@@ -3,7 +3,6 @@ import "../styles/App.css"
 import Attack from "./Attack";
 import Defense from "./Defense";
 import Home from "./Home";
-import NotFound from "./NotFound";
 import Layout from '../components/layout';
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="atk" element={<Attack />} />
           <Route path="def" element={<Defense />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
