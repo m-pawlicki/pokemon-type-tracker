@@ -28,7 +28,7 @@ export function ATKResults({type, multiplier}: ATKProps) {
                     <>
                         <div className="badge">
                             <p className="inner">
-                            <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" alt={type + " icon"} /> {type}</span>
+                            <span className={type + " name"}><img src={"icons/" + type + ".svg"} className="icon" alt="icon" /> {type}</span>
                             </p>
                         </div>
                     </>
