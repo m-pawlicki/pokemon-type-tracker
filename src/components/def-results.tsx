@@ -49,18 +49,20 @@ function DEFResults({typeOne, typeTwo, multiplier}: DEFProps) {
     if (result.length !== 0) {
         return(
             <>
+                <div className="dex-screen">
                 <h2 className="effect-title">Takes {multiplier}× Damage From</h2>
                 <div className="badge-box">
                 {result.map((type) => (
                     <>
-                        <div className="badge">
+                        <span className="badge">
                             <p className="inner">
                             <span className={type + " name"}><img src={"./icons/" + type + ".svg"} className="icon" alt="icon" /> {type}</span>
                             </p>
-                        </div>
+                        </span>
                     </>
                 )
                     )}
+                </div>
                 </div>
             </>
             )}

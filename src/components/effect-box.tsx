@@ -9,7 +9,7 @@ function EffectBox({ typeSelector }: EffectBoxProps) {
 
     return (
         <>
-            <div className="dex-screen">
+            <div className="dex-color">
                 { renderBadges(typeSelector) }
             </div>
         </>

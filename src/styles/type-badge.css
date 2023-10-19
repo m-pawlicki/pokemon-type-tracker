@@ -1,12 +1,11 @@
 .badge-box {
-  display: inline-flexbox;
-  justify-content: center;
-  max-width: 100%;
+  display: flexbox;
+  text-align: center;
+  padding: 0.5em;
 }  
   
 .badge{
-  text-align: center;
-  padding: 0.25rem;
+  padding: 0.25em;
 }
   .inner {
       display: inline-block;
