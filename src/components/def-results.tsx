@@ -1,6 +1,7 @@
 import { TYPEDEF } from "./poke-type";
 import "../styles/type-badge.css";
 import "../styles/effect-box.css";
+import { MULTIPLIER } from "./type-badge";
 
 interface DEFProps {
     typeOne: string;
@@ -45,12 +46,34 @@ function DEFResults({typeOne, typeTwo, multiplier}: DEFProps) {
 
     let result = getDEFEffectiveness(typeOne, typeTwo, multiplier);
 
+    let multiText;
+    switch(multiplier) {
+        case MULTIPLIER.QUADRUPLE:
+            multiText = "4";
+            break;
+        case MULTIPLIER.DOUBLE:
+            multiText = "2";
+            break;
+        case MULTIPLIER.BASE:
+            multiText = "1";
+            break;
+        case MULTIPLIER.HALF:
+            multiText = "½";
+            break;
+        case MULTIPLIER.QUARTER:
+            multiText = "¼";
+            break;
+        case MULTIPLIER.NONE:
+            multiText = "0";
+            break;
+    }
+
 
     if (result.length !== 0) {
         return(
             <>
                 <div className="dex-screen">
-                <h2 className="effect-title">Takes {multiplier}× Damage From</h2>
+                <h2 className="effect-title">Takes {multiText}× Damage From</h2>
                 <div className="badge-box">
                 {result.map((type) => (
                     <>

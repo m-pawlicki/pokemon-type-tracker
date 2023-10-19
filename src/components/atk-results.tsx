@@ -1,6 +1,7 @@
 import { TYPEATK } from "./poke-type";
 import "../styles/type-badge.css";
 import "../styles/effect-box.css";
+import { MULTIPLIER } from "./type-badge";
 
 interface ATKProps {
     type: string;
@@ -17,13 +18,36 @@ export function ATKResults({type, multiplier}: ATKProps) {
     }
 
     let result = getATKEffectiveness(type, multiplier);
+    
+    
+    let multiText;
+    switch(multiplier) {
+        case MULTIPLIER.QUADRUPLE:
+            multiText = "4";
+            break;
+        case MULTIPLIER.DOUBLE:
+            multiText = "2";
+            break;
+        case MULTIPLIER.BASE:
+            multiText = "1";
+            break;
+        case MULTIPLIER.HALF:
+            multiText = "½";
+            break;
+        case MULTIPLIER.QUARTER:
+            multiText = "¼";
+            break;
+        case MULTIPLIER.NONE:
+            multiText = "0";
+            break;
+    }
 
 
     if (result.length !== 0) {
         return(
             <>
             <div className="dex-screen">
-                <h2 className="effect-title">Does {multiplier}× Damage To</h2>
+                <h2 className="effect-title">Does {multiText}× Damage To</h2>
                 <div className="badge-box">
                 {result.map((type) => (
                     <>

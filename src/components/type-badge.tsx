@@ -10,6 +10,15 @@ interface TypeBadgeProps {
     pageType: TypeChoice;
 }
 
+export enum MULTIPLIER {
+    QUADRUPLE = 4,
+    DOUBLE = 2,
+    BASE = 1,
+    HALF = 0.5,
+    QUARTER = 0.25,
+    NONE = 0
+}
+
 function TypeBadge({firstType, secondType, pageType}: TypeBadgeProps) {
 
 
@@ -21,10 +30,10 @@ function TypeBadge({firstType, secondType, pageType}: TypeBadgeProps) {
     if (pageType === "ATK") {
         showBadge = (
             <>
-            <ATKResults type={firstType} multiplier={2}/>
-            <ATKResults type={firstType} multiplier={1}/>
-            <ATKResults type={firstType} multiplier={0.5}/>
-            <ATKResults type={firstType} multiplier={0}/>
+            <ATKResults type={firstType} multiplier={MULTIPLIER.DOUBLE}/>
+            <ATKResults type={firstType} multiplier={MULTIPLIER.BASE}/>
+            <ATKResults type={firstType} multiplier={MULTIPLIER.HALF}/>
+            <ATKResults type={firstType} multiplier={MULTIPLIER.NONE}/>
             </>
         );
             };
@@ -32,12 +41,12 @@ function TypeBadge({firstType, secondType, pageType}: TypeBadgeProps) {
     if (pageType === "DEF") {
         showBadge = (
             <>
-            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={4}/>
-            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={2}/>
-            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={1}/>
-            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={0.5}/>
-            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={0.25}/>
-            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={0}/>
+            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={MULTIPLIER.QUADRUPLE}/>
+            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={MULTIPLIER.DOUBLE}/>
+            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={MULTIPLIER.BASE}/>
+            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={MULTIPLIER.HALF}/>
+            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={MULTIPLIER.QUARTER}/>
+            <DEFResults typeOne={firstType} typeTwo={secondType} multiplier={MULTIPLIER.NONE}/>
             </>
         );
     }
