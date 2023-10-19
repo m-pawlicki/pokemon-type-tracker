@@ -10,7 +10,7 @@ pages:
   script:
     - npm install
     - npm run build
-    - cp public/icons build/icons
+    - cp r- public/icons build/icons
     - rm -rf public
     - cp build/index.html build/404.html
     - mv build public
