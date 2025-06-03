@@ -26,8 +26,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install
-    - run: npm run build
-    - run: rm -rf public
-    - run: cp build/index.html build/404.html
-    - run: mv build public
+    - run: npm install --save gh-pages
+    - run: npm run deploy
