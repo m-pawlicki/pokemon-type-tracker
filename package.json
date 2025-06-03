@@ -1,5 +1,6 @@
 {
   "name": "pokemon-type-tracker",
+  "homepage": "https://m-pawlicki.github.io/pokemon-type-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
