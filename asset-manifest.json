@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pokemon-type-tracker/static/css/main.93f1e61a.css",
+    "main.js": "/pokemon-type-tracker/static/js/main.24b93787.js",
+    "static/js/787.b0db9b03.chunk.js": "/pokemon-type-tracker/static/js/787.b0db9b03.chunk.js",
+    "index.html": "/pokemon-type-tracker/index.html",
+    "main.93f1e61a.css.map": "/pokemon-type-tracker/static/css/main.93f1e61a.css.map",
+    "main.24b93787.js.map": "/pokemon-type-tracker/static/js/main.24b93787.js.map",
+    "787.b0db9b03.chunk.js.map": "/pokemon-type-tracker/static/js/787.b0db9b03.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93f1e61a.css",
+    "static/js/main.24b93787.js"
+  ]
+}
